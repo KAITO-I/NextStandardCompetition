@@ -8,10 +8,10 @@ public class Player2 : PlayerController
     Transform _defalt;
     bool _chack = false;
 
-    //void Start()
-    //{
-
-    //}
+    protected override void Start()
+    {
+        base.Start();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -20,11 +20,12 @@ public class Player2 : PlayerController
         if (!_chack)//ブロックに当たっていないとき
         {
             //初期位置と距離が離れているときはその分速度を早くする
-            float addspeed = speed + Vector3.Distance(gameObject.transform.position, _defalt.position);
+            float addspeed = (MoveSpeed * 1 * Time.deltaTime) + (Vector3.Distance(gameObject.transform.position, _defalt.position));
         }
         //プレイヤーのいるべき位置をずらす
         var v = _defalt.position;
-        //v.x+=
+        v.x += MoveSpeed * 1 * Time.deltaTime;
+        _defalt.position = v;
         //_defalt.position = gameObject.transform.position;
 
 

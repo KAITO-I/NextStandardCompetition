@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c556158dd6f0f4bba8e82be50ee15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.07
+  speed: 5
 --- !u!1 &554904617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1350,13 @@ MonoBehaviour:
   jumpPower: 20
   gravityScale: 0
   maxGravity: 0
+  goalEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   _defalt: {fileID: 1268732692}
+  _playerSpeed: 0
 --- !u!61 &1268804366
 BoxCollider2D:
   m_ObjectHideFlags: 0

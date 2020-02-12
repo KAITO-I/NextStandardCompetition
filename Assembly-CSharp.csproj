@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SceneLoader.cs" />
+     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SEPlayer.cs" />
+     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SoundManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\CameraMove.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\BaseEnemy.cs" />

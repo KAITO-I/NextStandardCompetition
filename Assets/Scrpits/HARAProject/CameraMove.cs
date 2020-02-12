@@ -5,12 +5,12 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     bool MoveChack;
+    [SerializeField]
+    float speed;
 
-    public float speed;
     // Start is called before the first frame update
     void Start()
     {
-        //最初にプレイヤーの速度を保存する
         MoveChack = true;
     }
 
@@ -19,7 +19,7 @@ public class CameraMove : MonoBehaviour
     {
         if (MoveChack)//カメラが動いているかどうか
         {
-            gameObject.transform.position += new Vector3(speed, 0, 0);
+            gameObject.transform.position += new Vector3(speed * 1 * Time.deltaTime, 0, 0);
         }
 
     }
