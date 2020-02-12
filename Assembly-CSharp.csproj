@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{037DEA79-9B0C-56B6-956E-3B57D87E764B}</ProjectGuid>
+    <ProjectGuid>{1AF7E356-2D58-7119-FE6C-C1ED31A62E64}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,29 +53,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\CameraMove.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\BaseEnemy.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\Demon.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\Salamander.cs" />
+     <Compile Include="Assets\Scrpits\HARAProject\HaraPlayer.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\JumpStage.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\TestPlayer.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Trap\BaseTrap.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Trap\Pitfall.cs" />
-     <Compile Include="Assets\Scrpits\PlayerController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Users/student/Desktop/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -279,13 +280,13 @@
  <HintPath>C:/Users/student/Desktop/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/student/Desktop/GameJum/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/student/Desktop/game/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Users/student/Desktop/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

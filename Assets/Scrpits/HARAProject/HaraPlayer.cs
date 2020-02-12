@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HaraPlayer : PlayerController
+public class TestPlayer : PlayerController
 {
     [SerializeField]
     Transform _defalt;
