@@ -14,7 +14,7 @@ public abstract class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        _manager = GameObject.FindWithTag("Manager");
+        _manager = GameObject.FindwithTag("Manager");
     }
     protected virtual void Update()
     {
