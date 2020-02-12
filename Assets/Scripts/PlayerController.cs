@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -48,7 +49,12 @@ public class PlayerController : MonoBehaviour
 
     float gravity;
 
-    void Start()
+    // ゴール時の処理
+    [Header("GOAL")]
+    [SerializeField]
+    UnityEvent goalEvent;
+
+    protected virtual void Start()
     {
         this.rb2d = GetComponent<Rigidbody2D>();
 
@@ -58,7 +64,6 @@ public class PlayerController : MonoBehaviour
         this.gravity = 0f;
     }
 
-    float time = 0f;
     // オブジェクトの移動はフレーム速度に依存させない
     void FixedUpdate()
     {
@@ -92,6 +97,12 @@ public class PlayerController : MonoBehaviour
     {
         // 床(Floor)に付いた場合にジャンプ終了処理を行う
         if (collision.gameObject.tag.Equals("Floor")) EndJump();
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        // ゴール処理
+        if (collider.gameObject.tag.Equals("Goal")) this.goalEvent.Invoke();
     }
 
     /// <summary>

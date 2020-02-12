@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
 
             var seParent = transform.Find("SE Players");
             for (int i = 0; i < this.canPlaySECount; i++) {
-                GameObject se = new GameObject("SE");
+                var se = new GameObject("SE");
                 se.transform.SetParent(seParent);
 
                 var seSource = se.AddComponent<AudioSource>();
