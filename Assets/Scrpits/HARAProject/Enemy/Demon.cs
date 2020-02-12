@@ -25,6 +25,7 @@ public class Demon : BaseEnemy
         {
             BlockDisplay();
         }
+        base.Update();//必殺技の処理
     }
 
     //ブロックを出現させる処理//コライダーがついていない可能性？？
@@ -34,10 +35,10 @@ public class Demon : BaseEnemy
             Vector3Int vlickPosition = _tilemap.WorldToCell(screenToWorldPointPosition);//タイルのポジション
             vlickPosition.x += Random.Range(-_xRange - 1, -1);
             vlickPosition.y += Random.Range(-_yRange, _yRange);
-        Vector3 vec = _tilemap.GetCellCenterWorld(vlickPosition);
-         GameObject O= Instantiate(_trapObj, gameObject.transform.position, Quaternion.identity);
-        StartCoroutine(BlackMove(O,vec));
-        Debug.Log(vec);
+            Vector3 vec = _tilemap.GetCellCenterWorld(vlickPosition);
+             GameObject O= Instantiate(_trapObj, gameObject.transform.position, Quaternion.identity);
+            StartCoroutine(BlackMove(O,vec));
+            Debug.Log(vec);
             //_tilemap.SetTile(vlickPosition, _blockTile);//「0」の部分はやってみないとわからない
             _blockDis = false;
     }

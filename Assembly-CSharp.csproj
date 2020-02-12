@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\BaseEnemy.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\Demon.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\Salamander.cs" />
+     <Compile Include="Assets\Scrpits\HARAProject\HaraManager.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\HaraPlayer.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\JumpStage.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Player2.cs" />

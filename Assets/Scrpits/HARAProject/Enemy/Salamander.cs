@@ -21,6 +21,8 @@ public class Salamander : BaseEnemy
         {
             DownTrap();
         }
+        base.Update();  //必殺技の処理
+
     }
 
     private void DownTrap()
