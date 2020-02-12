@@ -60,7 +60,7 @@
      <Compile Include="Assets\Scrpits\HARAProject\Enemy\Salamander.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\HaraPlayer.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\JumpStage.cs" />
-     <Compile Include="Assets\Scrpits\HARAProject\TestPlayer.cs" />
+     <Compile Include="Assets\Scrpits\HARAProject\Player2.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Trap\BaseTrap.cs" />
      <Compile Include="Assets\Scrpits\HARAProject\Trap\Pitfall.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

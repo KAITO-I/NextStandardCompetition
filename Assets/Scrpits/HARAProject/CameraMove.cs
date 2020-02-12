@@ -10,6 +10,7 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //最初にプレイヤーの速度を保存する
         MoveChack = true;
     }
 
