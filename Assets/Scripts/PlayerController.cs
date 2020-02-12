@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     float speed;
     MoveDirection moveDir;
 
+    protected float MoveSpeed { get { return this.moveSpeed; } }
+
     // ジャンプ
     [Header("Jump")]
     [SerializeField]
