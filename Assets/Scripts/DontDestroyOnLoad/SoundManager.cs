@@ -6,6 +6,22 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager instance;
 
+    public static void PlayBGM(AudioClip bgm) {
+        instance.PlayBackGroundMusic(bgm);
+    }
+
+    public static void StopBGM() {
+        instance.StopBackGroundMusic();
+    }
+
+    public static void PlaySE(AudioClip se) {
+        instance.PlaySoundEffect(se);
+    }
+
+    public static void SEEndCallBack(SEPlayer se) {
+        instance.EndPlaySE(se);
+    }
+
     //==============================
     // クラス
     //==============================
@@ -13,92 +29,62 @@ public class SoundManager : MonoBehaviour
     AudioSource bgm;
 
     // SE
-    [Header("SE")]
     [SerializeField]
-    private GameObject seObjectParent;
-    [SerializeField]
-    private GameObject seObject;
-    [SerializeField]
-    private AudioClip[] seClips;
-
-    [SerializeField]
-    private int canPlaySECount;
-    private List<SEPlayer> usedSEGameObject;
-    private List<SEPlayer> unusedSEGameObject;
+    int canPlaySECount;
+    List<SEPlayer> usedSEGameObject   = new List<SEPlayer>();
+    List<SEPlayer> unusedSEGameObject = new List<SEPlayer>();
 
     //------------------------------
     // Startより前に初期化
     //------------------------------
-    private void Awake()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
+
+            this.bgm = transform.Find("BGM Player").GetComponent<AudioSource>();
+
+            var seParent = transform.Find("SE Players");
+            for (int i = 0; i < this.canPlaySECount; i++) {
+                GameObject se = new GameObject("SE");
+                se.transform.SetParent(seParent);
+
+                var seSource = se.AddComponent<AudioSource>();
+                var sePlayer = se.AddComponent<SEPlayer>();
+                sePlayer.Init(seSource);
+                this.unusedSEGameObject.Add(sePlayer);
+            }
         }
         else
-        {
             Destroy(this.gameObject);
-        }
-
-        this.playingBGMID = BGMID.None;
-
-        this.usedSEGameObject = new List<SoundEffect>();
-        this.unusedSEGameObject = new List<SoundEffect>();
-        for (int i = 0; i < this.canPlaySECount; i++)
-        {
-            GameObject obj = Instantiate(this.seObject);
-            obj.transform.SetParent(this.seObjectParent.transform);
-            this.unusedSEGameObject.Add(obj.GetComponent<SoundEffect>());
-        }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
-    //------------------------------
-    // BGM再生
-    //------------------------------
-    // [引数]
-    // BGMID bgmID : 再生するBGMのID
-    //------------------------------
-    public void PlayBGM(BGMID bgmID)
+    void PlayBackGroundMusic(AudioClip clip)
     {
         // 同じ曲なら処理しない
-        if (this.playingBGMID == bgmID) return;
+        if (this.bgm.clip == clip) return;
 
-        // 曲が流れていれば停止
-        if (this.playingBGMID != BGMID.None) StopBGM();
-
-        // BGMIDがNoneなら実行しない
-        if (bgmID == BGMID.None) return;
+        // 停止
+        if (this.bgm.isPlaying) StopBackGroundMusic();
 
         // 再生
-        this.playingBGMID = bgmID;
-        this.bgm.clip = this.bgmClips[(int)bgmID];
+        this.bgm.clip = clip;
         this.bgm.Play();
     }
 
-    //------------------------------
-    // BGM停止
-    //------------------------------
-    public void StopBGM()
+    void StopBackGroundMusic()
     {
-        this.playingBGMID = BGMID.None;
         this.bgm.Stop();
     }
 
-    //------------------------------
-    // SE再生
-    //------------------------------
-    // [引数]
-    // SEID seID : 再生するSEのID
-    //------------------------------
-    public void PlaySE(SEID seID)
+    void PlaySoundEffect(AudioClip clip)
     {
-        // 0個じゃなければ実行
         if (this.unusedSEGameObject.Count > 0)
         {
-            SoundEffect se = this.unusedSEGameObject[0];
-            se.Play(this.seClips[(int)seID]);
+            SEPlayer se = this.unusedSEGameObject[0];
+            se.Play(clip);
             this.unusedSEGameObject.RemoveAt(0);
             this.usedSEGameObject.Add(se);
         }
@@ -107,7 +93,7 @@ public class SoundManager : MonoBehaviour
     //------------------------------
     // SE自身が終わったことを報告
     //------------------------------
-    public void SEEndCallBack(SoundEffect se)
+    void EndPlaySE(SEPlayer se)
     {
         this.usedSEGameObject.Remove(se);
         this.unusedSEGameObject.Add(se);

@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class SEPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    AudioSource audio;
+
+    public void Init(AudioSource source)
     {
-        
+        this.audio = source;
+        this.audio.playOnAwake = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Play(AudioClip clip)
     {
-        
+        this.audio.clip = clip;
+        this.audio.Play();
+        Invoke("EndPlay", clip.length);
+    }
+
+    private void EndPlay()
+    {
+        SoundManager.SEEndCallBack(this);
     }
 }
