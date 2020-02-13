@@ -39,7 +39,7 @@ public class Player2 : PlayerController
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
         //必殺処理
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B)&&_manager.GetSetEx>=3)
         {
             ExSkill();
             //敵が存在していた場合は消滅（この部分は敵に処理を記載）

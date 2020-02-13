@@ -8,6 +8,8 @@ public class HaraManager : MonoBehaviour
     int _exCount;
     [SerializeField]
     Text _clear;
+    [SerializeField]
+    Slider _exSlider;
     float _time;
     public bool _start;
     public int GetSetEx
@@ -23,6 +25,7 @@ public class HaraManager : MonoBehaviour
         _clear.text = "";
         _start = false;
         _time = 3f;
+        _exSlider.maxValue = 3;
     }
 
     private void Update()
@@ -35,6 +38,8 @@ public class HaraManager : MonoBehaviour
             _start = true;
             _clear.text = "";
         }
+
+        _exSlider.value = _exCount;
     }
 
     public void GameClear()

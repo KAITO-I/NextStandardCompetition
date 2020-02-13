@@ -47,6 +47,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void EnemyDead()
     {
         Destroy(gameObject);
+        _manager.GetSetEx++;
     }
 
     protected void OnTriggerStay2D(Collider2D collision)
