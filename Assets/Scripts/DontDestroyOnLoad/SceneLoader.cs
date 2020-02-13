@@ -25,11 +25,11 @@ public class SceneLoader : MonoBehaviour
     //==============================
     public enum Scenes
     {
-        Title       = 0,
+        Title  = 0,
         StageSelect = 1,
-        Game01      = 2,
-        Game02      = 3,
-        Game03      = 4
+        Game01 = 2,
+        Game02 = 3,
+        Game03 = 4
     }
 
     //==============================
@@ -71,30 +71,51 @@ public class SceneLoader : MonoBehaviour
     {
         this.isLoading = true;
 
-        // 暗転
-        float timer = 0f;
-        while (timer <= this.loadingTime) {
-            timer += Time.deltaTime;
-            this.image.color = new Color(0f, 0f, 0f, Mathf.Lerp(0f, 1f, timer / this.loadingTime));
-            yield return null;
+        #region タイトルからセレクトの場合のみ、フェードを発生させず移動
+        if (LoadedScenes == Scenes.Title && target == Scenes.StageSelect)
+        {
+            // 読み込み
+            AsyncOperation load = SceneManager.LoadSceneAsync((int)Scenes.StageSelect);
+            load.allowSceneActivation = false;
+
+            while (load.progress < 0.9f) yield return null;
+
+            load.allowSceneActivation = true;
+            LoadedScenes = target;
         }
+        #endregion
 
-        // 読み込み
-        AsyncOperation load = SceneManager.LoadSceneAsync((int)target);
-        load.allowSceneActivation = false;
+        #region 上記以外はフェードを発生させて移動
+        else
+        {
+            // 暗転
+            float timer = 0f;
+            while (timer <= this.loadingTime)
+            {
+                timer += Time.deltaTime;
+                this.image.color = new Color(0f, 0f, 0f, Mathf.Lerp(0f, 1f, timer / this.loadingTime));
+                yield return null;
+            }
 
-        while (load.progress < 0.9f) yield return null;
+            // 読み込み
+            AsyncOperation load = SceneManager.LoadSceneAsync((int)target);
+            load.allowSceneActivation = false;
 
-        load.allowSceneActivation = true;
-        LoadedScenes = target;
+            while (load.progress < 0.9f) yield return null;
 
-        // 明転
-        timer = 0f;
-        while (timer <= this.loadingTime) {
-            timer += Time.deltaTime;
-            this.image.color = new Color(0f, 0f, 0f, Mathf.Lerp(1f, 0f, timer / this.loadingTime));
-            yield return null;
+            load.allowSceneActivation = true;
+            LoadedScenes = target;
+
+            // 明転
+            timer = 0f;
+            while (timer <= this.loadingTime)
+            {
+                timer += Time.deltaTime;
+                this.image.color = new Color(0f, 0f, 0f, Mathf.Lerp(1f, 0f, timer / this.loadingTime));
+                yield return null;
+            }
         }
+        #endregion
 
         this.isLoading = false;
     }

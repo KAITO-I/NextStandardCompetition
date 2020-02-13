@@ -25,8 +25,8 @@ public class GameOverManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
 
-            this.stageSelectButtonObj = transform.Find("StageSelect").gameObject;
-            this.stageselectButton    = this.stageSelectButtonObj.GetComponent<Button>();
+            //this.stageSelectButtonObj = transform.Find("StageSelect").gameObject;
+            //this.stageselectButton    = this.stageSelectButtonObj.GetComponent<Button>();
 
             gameObject.SetActive(IsActive = false);
         }
@@ -43,7 +43,7 @@ public class GameOverManager : MonoBehaviour
 
     public void StageSelect()
     {
-        SceneLoader.LoadScene(SceneLoader.Scenes.StageSelect);
+        SceneLoader.LoadScene(SceneLoader.Scenes.Title);
         gameObject.SetActive(IsActive = false);
     }
 
