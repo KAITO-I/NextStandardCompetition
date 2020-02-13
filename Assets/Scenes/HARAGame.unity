@@ -7293,6 +7293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718cdc00815f8064db8063d5d7eea494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clear: {fileID: 983788107}
+  _start: 0
   _exBarstChack: 0
   _exChack: 0
 --- !u!1 &1409007535
