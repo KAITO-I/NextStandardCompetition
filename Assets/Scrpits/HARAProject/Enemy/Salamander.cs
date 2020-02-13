@@ -11,8 +11,9 @@ public class Salamander : BaseEnemy
     bool _downDis;
     protected override void Start()
     {
-        _tileMap = GameObject.FindWithTag("Block").GetComponent<Tilemap>();
+        base.Start();
         _trapMap = GameObject.FindWithTag("Trap").GetComponent<Tilemap>();
+        _tileMap = GameObject.FindWithTag("Floor").GetComponent<Tilemap>();
         _downDis = true;
     }
     protected override void Update()
@@ -32,7 +33,12 @@ public class Salamander : BaseEnemy
         vlickPosition.y -= 1;
         vlickPosition.x += Random.Range(-_xRange - 1, -1);
 
-        _tileMap.SetTile(vlickPosition, _blockTile);//「0」の部分はやってみないとわからない
+        if (_tileMap.GetSprite(vlickPosition) != null)
+        {
+            _tileMap.SetTile(vlickPosition, null);
+        }
+        _trapMap.SetTile(vlickPosition, _blockTile);
+        _trapMap.SetColliderType(vlickPosition, Tile.ColliderType.Grid);
         _downDis = false;
     }
 }

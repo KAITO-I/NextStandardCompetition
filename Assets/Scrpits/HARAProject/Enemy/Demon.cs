@@ -15,6 +15,7 @@ public class Demon : BaseEnemy
     bool _blockDis;
     protected override void Start()
     {
+        base.Start();
         _tilemap = GameObject.FindWithTag("Block").GetComponent<Tilemap>();
         _blockDis = true;
     }
@@ -28,7 +29,7 @@ public class Demon : BaseEnemy
         base.Update();//必殺技の処理
     }
 
-    //ブロックを出現させる処理//コライダーがついていない可能性？？
+    //ブロックを出現させる処理
     private void BlockDisplay()
     {
             var screenToWorldPointPosition = gameObject.transform.position;
@@ -39,7 +40,6 @@ public class Demon : BaseEnemy
              GameObject O= Instantiate(_trapObj, gameObject.transform.position, Quaternion.identity);
             StartCoroutine(BlackMove(O,vec));
             Debug.Log(vec);
-            //_tilemap.SetTile(vlickPosition, _blockTile);//「0」の部分はやってみないとわからない
             _blockDis = false;
     }
     private IEnumerator BlackMove(GameObject obj,Vector3 vec)
