@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,8 @@ using TMPro;
 //==============================
 public class SceneLoader : MonoBehaviour
 {
-    private static SceneLoader instance;
+    static SceneLoader instance;
+    public static Scenes LoadedScenes { get; private set; }
 
     public static bool IsLoading { get { return instance.isLoading; } }
 
@@ -50,6 +52,8 @@ public class SceneLoader : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
 
+            LoadedScenes = (Scenes)Enum.ToObject(typeof(Scenes), SceneManager.GetActiveScene().buildIndex);
+
             this.image = transform.Find("Image").GetComponent<Image>();
             this.isLoading = false;
         }
@@ -82,6 +86,7 @@ public class SceneLoader : MonoBehaviour
         while (load.progress < 0.9f) yield return null;
 
         load.allowSceneActivation = true;
+        LoadedScenes = target;
 
         // 明転
         timer = 0f;
