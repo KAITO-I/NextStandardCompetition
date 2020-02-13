@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !GameOverManager.IsActive) GameOverManager.Active();
+        if (
+            Input.GetKeyDown(KeyCode.Escape)                           &&
+            !GameOverManager.IsActive                                  &&
+            SceneLoader.LoadedScenes != SceneLoader.Scenes.Title       &&
+            SceneLoader.LoadedScenes != SceneLoader.Scenes.StageSelect
+        )
+            GameOverManager.Active();
     }
 }

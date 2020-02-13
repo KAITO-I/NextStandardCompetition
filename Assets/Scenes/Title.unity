@@ -593,10 +593,13 @@ MonoBehaviour:
   backImage: {fileID: 302368180}
   frontImage: {fileID: 47579920}
   sprites:
-  - {fileID: 21300000, guid: b66d2e0667aa9a244b47e489832d8977, type: 3}
-  - {fileID: 21300000, guid: e9f8b943f8ce6c7489eb2b0b3e40b759, type: 3}
-  - {fileID: 21300000, guid: 8e2642aeb3212704d9dffa56f851710f, type: 3}
-  alphaChangeSpeed: 1
+  - {fileID: 21300000, guid: 720dd21c77432fc4c92b15475ac56a42, type: 3}
+  - {fileID: 21300000, guid: 642487020e92bce478a33facae5b15bc, type: 3}
+  - {fileID: 21300000, guid: 4076a62487fae0b43a597ae2e397da54, type: 3}
+  - {fileID: 21300000, guid: 7b6602a4c06f7a944b3db209a0a96c8c, type: 3}
+  - {fileID: 21300000, guid: 3505077a8ec8f1746a36a988bc49b390, type: 3}
+  alphaChangeSpeed: 1.5
+  bgm: {fileID: 8300000, guid: eb5e4470ee6cdc84fbbfd05823e59f81, type: 3}
 --- !u!4 &1553839398
 Transform:
   m_ObjectHideFlags: 0

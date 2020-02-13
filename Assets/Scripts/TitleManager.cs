@@ -17,6 +17,9 @@ public class TitleManager : MonoBehaviour
     [SerializeField]
     float alphaChangeSpeed;
 
+    [SerializeField]
+    AudioClip bgm;
+
     int   spriteNum          = 0;
     bool  changeSprite       = false;
     Color frontImageColor    = new Color(1f, 1f, 1f);
@@ -26,6 +29,7 @@ public class TitleManager : MonoBehaviour
     void Start()
     {
         this.backImage.sprite = this.sprites[0];
+        SoundManager.PlayBGM(this.bgm);
     }
 
     void Update()
