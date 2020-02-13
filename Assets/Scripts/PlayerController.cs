@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     }
 
     float speed;
-    MoveDirection moveDir;
+    public MoveDirection moveDir;
 
     protected float MoveSpeed { get { return this.moveSpeed; } }
 
