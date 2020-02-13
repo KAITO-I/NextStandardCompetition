@@ -28,23 +28,13 @@ public class Player2 : PlayerController
     void Update()
     {
         if (_gole) return;
+        if (!_manager._start) return;
+
         ////移動
         //Move(MoveDirection.Right);
         //初期位置と距離が離れているときはその分速度を早くする
         float addspeed = _defalt.position.x - transform.position.x;
         Move(MoveDirection.Right, addspeed);
-        Debug.Log(addspeed);
-        //if (!_chack)//ブロックに当たっていないとき
-        //{
-        //    //初期位置と距離が離れているときはその分速度を早くする
-        //    float addspeed = _defalt.position.x - transform.position.x;
-        //    Move(MoveDirection.Right, addspeed);
-        //    Debug.Log(addspeed);
-        //}
-            ////プレイヤーのいるべき位置をずらす
-            //var v = _defalt.position;
-            //v.x += MoveSpeed * 1 * Time.deltaTime;
-            //_defalt.position = v;
         //ジャンプ処理
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
