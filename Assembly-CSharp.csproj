@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BE3FB6E6-F84D-3250-808D-5B0F432F5413}</ProjectGuid>
+    <ProjectGuid>{E2679450-93F8-B2D8-73A5-519F409A305C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,9 +60,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
+    <Compile Include="Assets\Bandits - Pixel Art\Demo\CharacterSelector_Bandit.cs" />
+    <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\CoseGenBGMPlayer.cs" />
+    <Compile Include="Assets\CoseGenGoal.cs" />
+    <Compile Include="Assets\PlayerGraund.cs" />
+    <Compile Include="Assets\Scripts\DontDestroyOnLoad\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SEPlayer.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gen\EnemyCon.cs" />
     <Compile Include="Assets\Scripts\Gen\Event.cs" />
     <Compile Include="Assets\Scripts\Gen\GGoal.cs" />
@@ -71,21 +79,44 @@
     <Compile Include="Assets\Scripts\Gen\NPC2.cs" />
     <Compile Include="Assets\Scripts\Gen\NPC3.cs" />
     <Compile Include="Assets\Scripts\Gen\PlayerCon.cs" />
+    <Compile Include="Assets\Scripts\IgnoreMouseInput.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\StageSelectManager.cs" />
+    <Compile Include="Assets\Scripts\TinGame\Bullet.cs" />
+    <Compile Include="Assets\Scripts\TinGame\InstanceBullet.cs" />
+    <Compile Include="Assets\Scripts\TinGame\InstanceBulletList.cs" />
+    <Compile Include="Assets\Scripts\TinGame\PlayerControllerW.cs" />
+    <Compile Include="Assets\Scripts\TinGame\TrackingBullet.cs" />
+    <Compile Include="Assets\Scripts\TinGame\Warning.cs" />
+    <Compile Include="Assets\Scripts\TitleManager.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\CameraMove.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\Enemy\BaseEnemy.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\Enemy\Demon.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\Enemy\Salamander.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\HaraManager.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\HaraPlayer.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\JumpStage.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\Player2.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\Trap\BaseTrap.cs" />
+    <Compile Include="Assets\Scrpits\HARAProject\Trap\Pitfall.cs" />
+    <Compile Include="Assets\TinGameBGMPlayer.cs" />
+    <Compile Include="Assets\TinGameGameOver.cs" />
+    <Compile Include="Assets\TInGameGoal.cs" />
+    <None Include="Assets\Knight Files\Read Me.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unity201847f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -289,13 +320,13 @@
       <HintPath>D:/Program Files/Unity201847f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/student/Desktop/NextStandardCompetition-gengen/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/student/Desktop/NSC/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Program Files/Unity201847f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

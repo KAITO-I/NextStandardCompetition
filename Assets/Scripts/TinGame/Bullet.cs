@@ -45,4 +45,9 @@ public class Bullet : MonoBehaviour
         if (!renderer.isVisible) instanceBulletList.Destroy();
         transform.position += transform.up * speed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player")) GameOverManager.Active();
+    }
 }

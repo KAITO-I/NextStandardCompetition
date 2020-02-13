@@ -8,6 +8,8 @@ public class HaraManager : MonoBehaviour
     int _exCount;
     [SerializeField]
     Text _clear;
+    [SerializeField]
+    AudioClip clip;
     float _time;
     public bool _start;
     public int GetSetEx
@@ -23,6 +25,7 @@ public class HaraManager : MonoBehaviour
         _clear.text = "";
         _start = false;
         _time = 3f;
+        SoundManager.PlayBGM(clip);
     }
 
     private void Update()

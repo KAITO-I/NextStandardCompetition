@@ -63,8 +63,6 @@ public class SoundManager : MonoBehaviour
 
     void PlayBackGroundMusic(AudioClip clip)
     {
-        // 同じ曲なら処理しない
-        if (this.bgm.clip == clip) return;
 
         // 停止
         if (this.bgm.isPlaying) StopBackGroundMusic();

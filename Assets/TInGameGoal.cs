@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class TInGameGoal : MonoBehaviour
 {
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player")) GameOverManager.Active();
+    }
 }

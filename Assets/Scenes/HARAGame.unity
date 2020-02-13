@@ -7142,6 +7142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531118109519622217, guid: 3248535f6a2562c489a1223a75951ef2,
         type: 3}
+      propertyPath: clip.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531118109519622217, guid: 3248535f6a2562c489a1223a75951ef2,
+        type: 3}
       propertyPath: _defalt
       value: 
       objectReference: {fileID: 1750991163}
@@ -7170,6 +7175,16 @@ PrefabInstance:
       propertyPath: goalEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7531118109519622217, guid: 3248535f6a2562c489a1223a75951ef2,
+        type: 3}
+      propertyPath: clip.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 245cdb5f5cbf9984688b3c7c6c9b71ec, type: 3}
+    - target: {fileID: 7531118109519622217, guid: 3248535f6a2562c489a1223a75951ef2,
+        type: 3}
+      propertyPath: clip.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 111d051c07bde374c8f5d37bce618f10, type: 3}
     - target: {fileID: 1338857409, guid: 3248535f6a2562c489a1223a75951ef2, type: 3}
       propertyPath: _jumpStage
       value: 
@@ -7294,6 +7309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clear: {fileID: 983788107}
+  clip: {fileID: 8300000, guid: ced6b4f4fd66ea24482729bec093ee86, type: 3}
   _start: 0
   _exBarstChack: 0
   _exChack: 0

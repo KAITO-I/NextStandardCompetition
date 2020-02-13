@@ -9,6 +9,8 @@ public class Player2 : PlayerController
     Transform _defalt;
     [SerializeField]
     Sprite _blockTile;
+    [SerializeField]
+    AudioClip[] clip;
     //[SerializeField]
     //GameObject _jumpStage;
     public bool _chack = false;
@@ -37,7 +39,10 @@ public class Player2 : PlayerController
         Move(MoveDirection.Right, addspeed);
         //ジャンプ処理
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             Jump();
+            SoundManager.PlaySE(clip[1]);
+        }
         //必殺処理
         if (Input.GetKeyDown(KeyCode.B))
         {
@@ -69,6 +74,7 @@ public class Player2 : PlayerController
             {
             //攻撃アニメーションを再生
                 anim.SetTrigger("Attack");
+            SoundManager.PlaySE(clip[0]);
             }
         if (collision.tag == "Clear")
         {
