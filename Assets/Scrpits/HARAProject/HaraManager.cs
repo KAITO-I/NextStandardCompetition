@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HaraManager : MonoBehaviour
 {
     int _exCount;
+    Text _clear;
     public int GetSetEx
     {
         get  { return _exCount; }
@@ -14,15 +15,14 @@ public class HaraManager : MonoBehaviour
     public bool _exBarstChack;//発動できるかどうか
     public bool _exChack;//発動したかどうか
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        _clear.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GameClear()
     {
-        
+        _clear.text = "GAMECLEAR!!";
     }
+
 }

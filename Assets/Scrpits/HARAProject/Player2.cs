@@ -15,6 +15,7 @@ public class Player2 : PlayerController
     Tilemap _block;
     HaraManager _manager;
     Animator anim;
+    bool _gole;
 
     protected override void Start()
     {
@@ -26,6 +27,7 @@ public class Player2 : PlayerController
     // Update is called once per frame
     void Update()
     {
+        if (_gole) return;
         ////移動
         //Move(MoveDirection.Right);
         //初期位置と距離が離れているときはその分速度を早くする
@@ -78,6 +80,10 @@ public class Player2 : PlayerController
             //攻撃アニメーションを再生
                 anim.SetTrigger("Attack");
             }
+        if (collision.tag == "Clear")
+        {
+            _gole = true;
+        }
             //if (collision.tag == "Block")
             //{
             //    _chack = true;
