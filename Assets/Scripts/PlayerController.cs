@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     [Header("Jump")]
     [SerializeField]
     float jumpPower;
+    [SerializeField]
+    string[] floorTags;
 
     public bool IsJumping { get; private set; }
 
@@ -95,8 +97,14 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 床(Floor)に付いた場合にジャンプ終了処理を行う
-        if (collision.gameObject.tag.Equals("Floor")) EndJump();
+        // 指定された床であろうブロックならジャンプ終了処理を行う
+        foreach (string tag in this.floorTags) {
+            if (collision.gameObject.tag.Equals(tag))
+            {
+                EndJump();
+                break;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
