@@ -63,6 +63,7 @@
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\CharacterSelector_Bandit.cs" />
     <Compile Include="Assets\Bandits - Pixel Art\Demo\Sensor_Bandit.cs" />
+    <Compile Include="Assets\PlayerGraund.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SEPlayer.cs" />
     <Compile Include="Assets\Scripts\DontDestroyOnLoad\SoundManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scrpits\HARAProject\Player2.cs" />
     <Compile Include="Assets\Scrpits\HARAProject\Trap\BaseTrap.cs" />
     <Compile Include="Assets\Scrpits\HARAProject\Trap\Pitfall.cs" />
+    <None Include="Assets\Dragon Warrior Files\Read Me.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/student/Desktop/GJ/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

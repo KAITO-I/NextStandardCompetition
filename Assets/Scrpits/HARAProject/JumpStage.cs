@@ -8,9 +8,12 @@ public class JumpStage : MonoBehaviour
     //乗れるように
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player"&&collision.name== "GroundSensor")
         {
-            GetComponent<TilemapCollider2D>().isTrigger = false;
+            if (collision.transform.parent.GetComponent<Rigidbody2D>().velocity.y < 0)
+            {
+                GetComponent<TilemapCollider2D>().isTrigger = false;
+            }
         }
     }
 }

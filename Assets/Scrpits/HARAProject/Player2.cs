@@ -9,7 +9,9 @@ public class Player2 : PlayerController
     Transform _defalt;
     [SerializeField]
     Sprite _blockTile;
-    bool _chack = false;
+    //[SerializeField]
+    //GameObject _jumpStage;
+    public bool _chack = false;
     Tilemap _block;
     HaraManager _manager;
     Animator anim;
@@ -25,18 +27,22 @@ public class Player2 : PlayerController
     void Update()
     {
         ////移動
-        Move(MoveDirection.Right);
-        if (!_chack)//ブロックに当たっていないとき
-        {
-            //初期位置と距離が離れているときはその分速度を早くする
-            float addspeed = (MoveSpeed * 1 * Time.deltaTime) + (Vector3.Distance(gameObject.transform.position, _defalt.position));
-            //Move(MoveDirection.Right, addspeed);
-            //Debug.Log(Vector3.Distance(gameObject.transform.position, _defalt.position));
-        }
-        //プレイヤーのいるべき位置をずらす
-        var v = _defalt.position;
-        v.x += MoveSpeed * 1 * Time.deltaTime;
-        _defalt.position = v;
+        //Move(MoveDirection.Right);
+        //初期位置と距離が離れているときはその分速度を早くする
+        float addspeed = _defalt.position.x - transform.position.x;
+        Move(MoveDirection.Right, addspeed);
+        Debug.Log(addspeed);
+        //if (!_chack)//ブロックに当たっていないとき
+        //{
+        //    //初期位置と距離が離れているときはその分速度を早くする
+        //    float addspeed = _defalt.position.x - transform.position.x;
+        //    Move(MoveDirection.Right, addspeed);
+        //    Debug.Log(addspeed);
+        //}
+            ////プレイヤーのいるべき位置をずらす
+            //var v = _defalt.position;
+            //v.x += MoveSpeed * 1 * Time.deltaTime;
+            //_defalt.position = v;
         //ジャンプ処理
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
@@ -72,17 +78,21 @@ public class Player2 : PlayerController
             //攻撃アニメーションを再生
                 anim.SetTrigger("Attack");
             }
-            if (collision.tag == "Block")
-            {
-                _chack = true;
-            }
+            //if (collision.tag == "Block")
+            //{
+            //    _chack = true;
+            //}
+            //if (collision.tag == "Floor"&&collision.name=="Block")
+            //{
+            //_jumpStage.GetComponent<TilemapCollider2D>().isTrigger = true;
+            //}
         }
-        private void OnTriggeraExit2D(Collider2D collision)
-        {
-            if (collision.tag == "Block")
-            {
-                _chack = false;
-            }
-        }
+        //private void OnTriggeraExit2D(Collider2D collision)
+        //{
+        //    if (collision.tag == "Block")
+        //    {
+        //        _chack = false;
+        //    }
+        //}
 
     }

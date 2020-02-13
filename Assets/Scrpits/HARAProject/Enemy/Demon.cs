@@ -12,17 +12,16 @@ public class Demon : BaseEnemy
 
     Tilemap _tilemap;
 
-    bool _blockDis;
     protected override void Start()
     {
         base.Start();
         _tilemap = GameObject.FindWithTag("Block").GetComponent<Tilemap>();
-        _blockDis = true;
+        _action = false;
     }
 
     protected override void Update()
     {
-        if (_blockDis)//タイルを出現させる処理
+        if (_action)//タイルを出現させる処理
         {
             BlockDisplay();
         }
@@ -40,7 +39,8 @@ public class Demon : BaseEnemy
              GameObject O= Instantiate(_trapObj, gameObject.transform.position, Quaternion.identity);
             StartCoroutine(BlackMove(O,vec));
             Debug.Log(vec);
-            _blockDis = false;
+            flag = 1;
+            _action= false;
     }
     private IEnumerator BlackMove(GameObject obj,Vector3 vec)
     {

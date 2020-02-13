@@ -7,8 +7,12 @@ public abstract class BaseEnemy : MonoBehaviour
 {
     [SerializeField]
     protected TileBase _blockTile;
+    [SerializeField]
+    float _disTime;
     protected HaraManager _manager;
 
+    protected bool _action;
+    protected int flag = 0;
     bool _exChack;
     GameObject _playerObj;
     // Start is called before the first frame update
@@ -19,6 +23,11 @@ public abstract class BaseEnemy : MonoBehaviour
     }
     protected virtual void Update()
     {
+        float distance = Vector3.Distance(_playerObj.transform.position, transform.position);
+        if (distance <= _disTime&&flag==0)
+        {
+            _action = true;
+        }
         _exChack = _manager._exChack;
         //必殺技が発動したとき
         if (_exChack )

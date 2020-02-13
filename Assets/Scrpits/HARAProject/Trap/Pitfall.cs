@@ -6,8 +6,11 @@ public class Pitfall : BaseTrap
 {
     [SerializeField]
     float speed;
+    float _fallTime;
+    Vector3 _defaltPos;
     protected override void Start()
     {
+        _defaltPos = transform.position;
     }
     protected override void Update()
     {
@@ -19,5 +22,10 @@ public class Pitfall : BaseTrap
     protected override void TrapMove()
     {
         gameObject.transform.position += new Vector3(0, speed, 0);
+        _fallTime += Time.deltaTime;
+        if (_fallTime >= 3f)
+        {
+            transform.position = _defaltPos;
+        }
     }
 }

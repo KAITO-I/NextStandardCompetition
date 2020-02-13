@@ -8,17 +8,16 @@ public class Salamander : BaseEnemy
     [SerializeField]
     int _xRange;
     Tilemap _tileMap,_trapMap;
-    bool _downDis;
     protected override void Start()
     {
         base.Start();
         _trapMap = GameObject.FindWithTag("Trap").GetComponent<Tilemap>();
         _tileMap = GameObject.FindWithTag("Floor").GetComponent<Tilemap>();
-        _downDis = true;
+        _action = false;
     }
     protected override void Update()
     {
-        if (_downDis)
+        if (_action)
         {
             DownTrap();
         }
@@ -39,6 +38,7 @@ public class Salamander : BaseEnemy
         }
         _trapMap.SetTile(vlickPosition, _blockTile);
         _trapMap.SetColliderType(vlickPosition, Tile.ColliderType.Grid);
-        _downDis = false;
+        flag = 1;
+        _action= false;
     }
 }
