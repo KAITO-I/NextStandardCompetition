@@ -78,7 +78,6 @@
     <Compile Include="Assets\Scrpits\HARAProject\Player2.cs" />
     <Compile Include="Assets\Scrpits\HARAProject\Trap\BaseTrap.cs" />
     <Compile Include="Assets\Scrpits\HARAProject\Trap\Pitfall.cs" />
-    <None Include="Assets\Dragon Warrior Files\Read Me.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/student/Desktop/GJ/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
