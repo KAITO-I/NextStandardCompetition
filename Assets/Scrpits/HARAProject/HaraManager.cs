@@ -9,7 +9,12 @@ public class HaraManager : MonoBehaviour
     [SerializeField]
     Text _clear;
     [SerializeField]
-    Slider _exSlider;
+    Transform _countBerPos;
+    [SerializeField]
+    GameObject _yellowObject;
+    [SerializeField]
+    GameObject[] _exCountImage;
+    
     float _time;
     public bool _start;
     public int GetSetEx
@@ -25,7 +30,11 @@ public class HaraManager : MonoBehaviour
         _clear.text = "";
         _start = false;
         _time = 3f;
-        _exSlider.maxValue = 3;
+        GetSetEx = 0;
+        foreach(var v in _exCountImage)
+        {
+            v.SetActive(false);
+        }
     }
 
     private void Update()
@@ -38,8 +47,17 @@ public class HaraManager : MonoBehaviour
             _start = true;
             _clear.text = "";
         }
-
-        _exSlider.value = _exCount;
+        for(int i = 0; i < _exCountImage.Length; ++i)
+        {
+            if (i < GetSetEx)
+            {
+                _exCountImage[i].SetActive(true);
+            }
+            else
+            {
+                _exCountImage[i].SetActive(false);
+            }
+        }
     }
 
     public void GameClear()

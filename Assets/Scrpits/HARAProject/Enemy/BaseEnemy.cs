@@ -30,7 +30,7 @@ public abstract class BaseEnemy : MonoBehaviour
         }
         _exChack = _manager._exChack;
         //必殺技が発動したとき
-        if (_exChack )
+        if (_exChack)
         {
             //範囲が３０タイル以内でプレイヤーより前にいる敵に対して
             if(_playerObj.transform.position.x + 30 >gameObject.transform.position.x && _playerObj.transform.position.x < gameObject.transform.position.x)
@@ -41,6 +41,7 @@ public abstract class BaseEnemy : MonoBehaviour
                     EnemyDead();
                 }
             }
+            _manager._exChack = false;//一度発動したら止める
         }
     }
 
@@ -48,11 +49,13 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Destroy(gameObject);
         _manager.GetSetEx++;
+        Debug.Log(gameObject.name);
+        Debug.Log(_manager.GetSetEx);
     }
 
-    protected void OnTriggerStay2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player"&&collision.name== "HeavyBandit")
         {
             EnemyDead();
         }

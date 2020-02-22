@@ -17,7 +17,7 @@ public class PlayerGraund : MonoBehaviour
         {
             _jumpStage.GetComponent<TilemapCollider2D>().isTrigger = true;
         }
-        Debug.Log(collision.name);  
+        //Debug.Log(collision.name);  
     }
     private void OnTriggeraExit2D(Collider2D collision)
     {
